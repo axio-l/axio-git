@@ -1,7 +1,10 @@
 package game2048;
 
+import java.net.SocketOption;
 import java.util.Formatter;
 import java.util.Observable;
+
+
 
 
 /** The state of a game of 2048.
@@ -110,9 +113,46 @@ public class Model extends Observable {
         boolean changed;
         changed = false;
 
+
+
         // TODO: Modify this.board (and perhaps this.score) to account
         // for the tilt to the Side SIDE. If the board changed, set the
         // changed local variable to true.
+
+        String Z = String.valueOf(side);
+        System.out.println(Z);
+
+        if (Z == "SOUTH") {
+            System.out.println("This is SOUTH");
+            board.setViewingPerspective(Side.SOUTH);
+        } else if (Z == "EAST") {
+            System.out.println("This is EAST");
+            board.setViewingPerspective(Side.EAST);
+        } else if (Z == "WEST") {
+            System.out.println("This is WEST");
+            board.setViewingPerspective(Side.WEST);
+        } else if (Z == "NORTH") {
+            System.out.println("This is NORTH");
+            board.setViewingPerspective(Side.NORTH);
+        }
+
+        Tile ts = null;
+
+        for (int i = 3; i >= 0; i -= 1) {
+            for (int j = 3; j >= 0; j -= 1) {
+                Tile t = board.tile(i, j);
+                if (t != null) {
+                    //System.out.println("activated moveTile");
+                    ts = moveTile(t,i,j,ts);
+                    System.out.println("ts is " + ts);
+                    //board.move(i, 3, t);
+                    changed = true;
+                    //score += 2;
+                }
+            }
+        }
+
+        board.setViewingPerspective(Side.NORTH);
 
         checkGameOver();
         if (changed) {
@@ -120,6 +160,67 @@ public class Model extends Observable {
         }
         return changed;
     }
+
+
+    private Tile moveTile(Tile t, int i, int j, Tile ts) {
+        for (int jj = 3; jj > j; jj -= 1) {
+                Tile tt = board.tile(i, jj);
+                System.out.println("tt is " + tt);
+                if (tt == ts && tt != null) {
+                    continue;
+                }
+                //System.out.println("tt is " + tt);
+                //System.out.println(tt + "(" + i + "," + j + ")");
+                int a = toInt(t);
+                int aa = toInt(tt);
+                if (a == aa || tt == null) {
+                    System.out.println("I can move " + t + " to " + "(" + i + "," + jj + ")");
+                    if (!checkBlock(tt, i, j, jj)) {
+                        board.move(i,jj,t);
+                        System.out.println(t);
+                        System.out.println((board.tile(i,jj)));
+                        if (toInt((board.tile(i,jj))) != toInt(t)) {
+                            ts = board.tile(i, jj);
+                        }
+                        System.out.println("Not getting blocked, move to (" + i + "," + jj + ")");
+                        Tile tf = board.tile(i,jj);
+                        if (tt != null) {
+                            int s = toInt(tf);
+                            System.out.println("score plus " + s);
+                            score += s;
+                        }
+                        break;
+                    } else {
+                        System.out.println("I'm blocked");
+                    }
+                }
+        }
+        return ts;
+    }
+
+    private boolean checkBlock(Tile tt, int i, int j, int jj) {
+        for (int k = jj - 1 ; k > j; k -= 1) {
+            if (board.tile(i, k) != null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int toInt(Tile t) {
+        int d = 0;
+        String c = String.valueOf(t);
+        if (c == null){
+            d = 0;
+        }else if (c.indexOf("@")>0) {
+            c = c.substring(0, c.indexOf("@"));
+            d = Integer.parseInt(c);
+        }
+        //System.out.println(d);
+        return d;
+    }
+
+
 
     /** Checks if the game is over and sets the gameOver variable
      *  appropriately.
@@ -138,6 +239,17 @@ public class Model extends Observable {
      * */
     public static boolean emptySpaceExists(Board b) {
         // TODO: Fill in this function.
+        /*System.out.print(b.size());*/
+        int s = b.size();
+        for (int i = 0; i < s; i = i + 1 ) {
+            for (int j = 0; j < s; j = j + 1){
+                Tile t = b.tile(i,j);
+                if ( t == null) {
+                    System.out.println(b);
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -148,6 +260,27 @@ public class Model extends Observable {
      */
     public static boolean maxTileExists(Board b) {
         // TODO: Fill in this function.
+        int s = b.size();
+        int v = 0;
+        for (int i = 0; i < s; i = i + 1) {
+            for (int j = 0; j < s; j = j + 1) {
+                Tile ti = b.tile(i, j);
+                String t = String.valueOf(ti);
+                if (t == null){
+                    v = 0;
+                }else if (t.indexOf("@")>0){
+                    t = t.substring(0,t.indexOf("@"));
+                    v = Integer.valueOf(t);
+                }
+                //System.out.println(ti);
+                //System.out.println(t);
+                //System.out.println(v);
+                if (v == MAX_PIECE) {
+                    System.out.println(v);
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -159,6 +292,65 @@ public class Model extends Observable {
      */
     public static boolean atLeastOneMoveExists(Board b) {
         // TODO: Fill in this function.
+
+        int s = b.size();
+        int v = 0;
+        int[][] k = new int[4][4];
+        for (int i = 0; i < s; i = i + 1) {
+            for (int j = 0; j < s; j = j + 1) {
+                Tile ti = b.tile(i, j);
+                if (ti == null) {
+                    return true;
+                }
+                String t = String.valueOf(ti);
+                if (t.indexOf("@") > 0) {
+                    t = t.substring(0, t.indexOf("@"));
+                    v = Integer.valueOf(t);
+                    k[i][j] = v;
+                }
+            }
+        }
+        for (int i = 0; i < s; i = i + 1) {
+            for (int j = 0; j < s; j = j + 1) {
+                //System.out.println(k[i][j]);
+                if (i == 0 && j==0) {
+                    if (k[i][j] == k[i+1][j] || k[i][j] == k[i][j+1]) {
+                        return true;
+                    }
+                }else if (i == 0 && j == 3) {
+                    if (k[i][j] == k[i+1][j] || k[i][j] == k[i][j-1]) {
+                        return true;
+                    }
+                }else if (i == 3 && j == 0) {
+                    if (k[i][j] == k[i-1][j] || k[i][j] == k[i][j+1]) {
+                        return true;
+                    }
+                }else if (i == 3 && j == 3) {
+                    if (k[i][j] == k[i-1][j] || k[i][j] == k[i][j-1]) {
+                        return true;
+                    }
+                }else if (i == 0) {
+                    if (k[i][j] == k[i+1][j] || k[i][j] == k[i][j-1]|| k[i][j] == k[i][j+1]) {
+                        return true;
+                    }
+                }else if (i == 3) {
+                    if (k[i][j] == k[i-1][j] || k[i][j] == k[i][j-1]|| k[i][j] == k[i][j+1]) {
+                        return true;
+                    }
+                }else if (j == 0) {
+                    if (k[i][j] == k[i-1][j] || k[i][j] == k[i+1][j]|| k[i][j] == k[i][j+1]) {
+                        return true;
+                    }
+                }else if (j == 3) {
+                    if (k[i][j] == k[i-1][j] || k[i][j] == k[i+1][j]|| k[i][j] == k[i][j-1]) {
+                        return true;
+                    }
+                }
+                else if (k[i][j]==k[i-1][j] || k[i][j]==k[i+1][j] || k[i][j]==k[i][j-1] || k[i][j]==k[i][j+1]) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
