@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1641ce2e-7a2f-4fd4-b90a-62250aa625fd" name="Changes" comment="" />
+    <list default="true" id="1641ce2e-7a2f-4fd4-b90a-62250aa625fd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../practice/2.1/AList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practice/2.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/2.1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deque/LinkedListDeque.java" beforeDir="false" afterPath="$PROJECT_DIR$/deque/LinkedListDeque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deque/LinkedListDequeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/deque/LinkedListDequeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deque/LinkedListDeque.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/deque/LinkedListDeque.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deque/LinkedListDequeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/deque/LinkedListDequeTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,22 +56,9 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.42068964" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
   <component name="RunManager" selected="Application.LinkedListDeque">
-    <configuration name="LinkedListDaque" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="deque.LinkedListDaque" />
-      <module name="proj1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="deque.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LinkedListDeque" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="deque.LinkedListDeque" />
       <module name="proj1" />
@@ -77,7 +72,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LinkedListDequeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LinkedListDequeTest.bigLLDequeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="proj1" />
       <extension name="coverage">
         <pattern>
@@ -87,12 +82,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="deque" />
       <option name="MAIN_CLASS_NAME" value="deque.LinkedListDequeTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="bigLLDequeTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LinkedListDequeTest.addIsEmptySizeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LinkedListDequeTest.emptyNullReturnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="proj1" />
       <extension name="coverage">
         <pattern>
@@ -102,7 +98,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="deque" />
       <option name="MAIN_CLASS_NAME" value="deque.LinkedListDequeTest" />
-      <option name="METHOD_NAME" value="addIsEmptySizeTest" />
+      <option name="METHOD_NAME" value="emptyNullReturnTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LinkedListDequeTest.multipleParamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="proj1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="deque.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="deque" />
+      <option name="MAIN_CLASS_NAME" value="deque.LinkedListDequeTest" />
+      <option name="METHOD_NAME" value="multipleParamTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LinkedListDequeTest.removeEmptyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="proj1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="deque.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="deque" />
+      <option name="MAIN_CLASS_NAME" value="deque.LinkedListDequeTest" />
+      <option name="METHOD_NAME" value="removeEmptyTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -111,9 +139,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.LinkedListDeque" />
-        <item itemvalue="JUnit.LinkedListDequeTest" />
-        <item itemvalue="JUnit.LinkedListDequeTest.addIsEmptySizeTest" />
-        <item itemvalue="Application.LinkedListDaque" />
+        <item itemvalue="JUnit.LinkedListDequeTest.bigLLDequeTest" />
+        <item itemvalue="JUnit.LinkedListDequeTest.emptyNullReturnTest" />
+        <item itemvalue="JUnit.LinkedListDequeTest.multipleParamTest" />
+        <item itemvalue="JUnit.LinkedListDequeTest.removeEmptyTest" />
       </list>
     </recent_temporary>
   </component>
@@ -143,14 +172,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/deque/LinkedListDeque.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/deque/LinkedListDequeTest.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/deque/LinkedListDeque.java</url>
-          <line>136</line>
-          <option name="timeStamp" value="12" />
+          <line>170</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

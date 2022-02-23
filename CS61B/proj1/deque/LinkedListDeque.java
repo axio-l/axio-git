@@ -35,6 +35,17 @@ public class LinkedListDeque<myType> {
         size = 1;
     }
 
+    public LinkedListDeque(LinkedListDeque other) {
+        sentinel = new Node(null, null, null);
+        sentinel.next = new Node(null, null, null);
+        last = sentinel.next;
+        size = 0;
+
+        for (int i = 0; i < other.size() ; i += 1) {
+            addLast((myType) other.get(i));
+        }
+    }
+
     public void addFirst(myType item) {
         size += 1;
         if (last.item == null) {
@@ -81,22 +92,31 @@ public class LinkedListDeque<myType> {
     }
 
     public myType removeFirst() {
-        size -= 1;
         if (size == 0) {
             return null;
+        } else if (size == 1) {
+            myType x = sentinel.next.item;
+            sentinel.next.item = null;
+            size -= 1;
+            return x;
         }
         remove = sentinel.next;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
         remove.next = null;
         remove.prev = null;
+        size -= 1;
         return remove.item;
     }
 
     public myType removeLast() {
-        size -= 1;
         if (size == 0) {
             return null;
+        } else if (size == 1) {
+            myType x = last.item;
+            last.item = null;
+            size -= 1;
+            return x;
         }
         remove = last;
         last.next.prev = last.prev;
@@ -104,11 +124,12 @@ public class LinkedListDeque<myType> {
         remove.next = null;
         remove.prev = null;
         last = sentinel.prev;
+        size -= 1;
         return remove.item;
     }
 
-    public myType get(int index) {
-        if (size == 0) {
+    public myType getRecursive(int index) {
+        if (size == 0 || index + 1 > size) {
             return null;
         }
         if (getTool) {
@@ -116,11 +137,24 @@ public class LinkedListDeque<myType> {
             getTool = false;
         }
         if (index == 0) {
-            return sentinel.next.item;
+            getTool = true;
+            return getNode.item;
         }
         getNode = getNode.next;
         index -= 1;
-        return get(index);
+        return getRecursive(index);
+    }
+
+    public myType get(int index) {
+        if (size == 0 || index > size) {
+            return null;
+        }
+        getNode = sentinel.next;
+        while (index > 0) {
+            index -= 1;
+            getNode = getNode.next;
+        }
+        return getNode.item;
     }
 
     public static void main(String[] args) {
@@ -132,17 +166,12 @@ public class LinkedListDeque<myType> {
         L.addLast(4);
         L.addLast(3);
         L.printDeque();
-        L.removeFirst();
-        L.removeLast();
-        L.get(2);
-
-
-
-
-
-
-        System.out.println(L.removeFirst());
-        System.out.println(L.removeLast());
+        //L.removeFirst();
+        //L.removeLast();
+        //L.get(5);
+        LinkedListDeque<Integer> Q = new LinkedListDeque<>(L);
+        //System.out.println(L.removeFirst());
+        //System.out.println(L.removeLast());
 
     }
 
