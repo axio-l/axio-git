@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1641ce2e-7a2f-4fd4-b90a-62250aa625fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../practice/2.1/AList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deque/ArrayDeque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../practice/2.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/2.1/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deque/LinkedListDeque.java" beforeDir="false" afterPath="$PROJECT_DIR$/deque/LinkedListDeque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deque/LinkedListDequeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/deque/LinkedListDequeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deque/LinkedListDeque.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/deque/LinkedListDeque.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/deque/LinkedListDequeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/deque/LinkedListDequeTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,9 +56,9 @@
     <property name="project.structure.side.proportion" value="0.42068964" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
-  <component name="RunManager" selected="Application.LinkedListDeque">
-    <configuration name="LinkedListDeque" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="deque.LinkedListDeque" />
+  <component name="RunManager" selected="Application.ArrayDeque">
+    <configuration name="ArrayDeque" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="deque.ArrayDeque" />
       <module name="proj1" />
       <extension name="coverage">
         <pattern>
@@ -138,7 +136,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LinkedListDeque" />
+        <item itemvalue="Application.ArrayDeque" />
         <item itemvalue="JUnit.LinkedListDequeTest.bigLLDequeTest" />
         <item itemvalue="JUnit.LinkedListDequeTest.emptyNullReturnTest" />
         <item itemvalue="JUnit.LinkedListDequeTest.multipleParamTest" />
@@ -172,20 +170,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/deque/LinkedListDequeTest.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/deque/LinkedListDeque.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="32" />
+          <url>file://$PROJECT_DIR$/deque/ArrayDeque.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/proj1$LinkedListDeque.ic" NAME="LinkedListDeque Coverage Results" MODIFIED="1645228770111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>deque.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/proj1$ArrayDeque.ic" NAME="ArrayDeque Coverage Results" MODIFIED="1645649229126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>deque.*</FILTER>
     </SUITE>
   </component>
